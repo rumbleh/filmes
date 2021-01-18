@@ -1,30 +1,24 @@
 import React, {useEffect} from 'react';
-import {
-  View,
-  Text,
-  Image,
-  StyleSheet,
-  ImageBackground,
-  Button,
-} from 'react-native';
+import {View, Text, Image, StyleSheet, ImageBackground} from 'react-native';
 
-import {useRoute} from '@react-navigation/native';
+import {useNavigation, useRoute} from '@react-navigation/native';
 import StarRating from 'react-native-star-rating';
 import {useState} from 'react';
 
-const FilmeDetalhe = ({navigation, params}) => {
+const FilmeDetalhe = ({navigation: {setParams}}) => {
   const route = useRoute();
-  const filme = route.params.filme;
+  const n = useNavigation();
 
+  const filme = route.params.filme;
   const [nota, setNota] = useState(filme.Rating);
 
-  useEffect((filme) => {});
-
+  console.log(this);
   const setRating = (v) => {
-    filme.Rating = v;
     setNota(v);
+    filme.Rating = v;
   };
 
+  useEffect((filme) => {});
   return (
     <ImageBackground
       source={{uri: filme.Poster}}

@@ -1,6 +1,5 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {View, FlatList} from 'react-native';
-import {useEffect, useState} from 'react/cjs/react.development';
 import FilmeFlatComponent from '../components/FilmeFlatComponent';
 import {useNavigation} from '@react-navigation/native';
 

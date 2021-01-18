@@ -6,12 +6,21 @@ import {useState} from 'react';
 
 const FilmeFlatComponent = ({data}) => {
   const navigation = useNavigation();
+  const aa = () => {
+    alert('hi');
+  };
+  const [nota, setNota] = useState(data.Rating);
   const navegar = () => {
     navigation.navigate('FilmeDetalhe', {
       name: data.Title,
       filme: data,
+      callback: aa,
     });
   };
+
+  useEffect(() => {
+    setNota(data.Rating);
+  });
 
   return (
     <TouchableOpacity onPress={navegar} style={styles.container}>
@@ -29,7 +38,7 @@ const FilmeFlatComponent = ({data}) => {
           <StarRating
             disabled={true}
             maxStars={5}
-            rating={data.Rating}
+            rating={nota}
             fullStarColor={'darkorange'}
             starSize={20}
           />
