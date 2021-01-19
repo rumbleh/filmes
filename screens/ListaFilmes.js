@@ -1,16 +1,16 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import {View, FlatList} from 'react-native';
 import FilmeFlatComponent from '../components/FilmeFlatComponent';
-import {useNavigation} from '@react-navigation/native';
 
-const ListaFilmes = ({route, navigation}) => {
-  const json = require('../assets/filmes.json');
+// Carrega os filmes do arquivo JSON
+const lista = require('../assets/filmes.json').data;
 
+const ListaFilmes = () => {
   return (
     <View>
       <FlatList
-        data={json}
-        extraData={json}
+        data={lista}
+        extraData={lista}
         renderItem={({item}) => <FilmeFlatComponent data={item} />}
       />
     </View>
