@@ -1,17 +1,18 @@
 import React, {useState} from 'react';
 import {View, FlatList} from 'react-native';
 import FilmeFlatComponent from '../components/FilmeFlatComponent';
-
-// Carrega os filmes do arquivo JSON
-const lista = require('../assets/filmes.json').data;
+import {useSelector} from 'react-redux';
 
 const ListaFilmes = () => {
+  const lista = useSelector((state) => state.data);
+
   return (
     <View>
       <FlatList
         data={lista}
-        extraData={lista}
-        renderItem={({item}) => <FilmeFlatComponent data={item} />}
+        renderItem={({item, index}) => (
+          <FilmeFlatComponent data={item} index={index} />
+        )}
       />
     </View>
   );

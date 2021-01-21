@@ -2,6 +2,7 @@
   "data": [
     {
       "key": "1",      
+      "Favorite": false,
       "Title": "Avatar",      
       "Released": "18 Dec 2009",      
       "Genre": "Action, Adventure, Fantasy",      
@@ -11,6 +12,7 @@
     },
     {
       "key": "2",      
+      "Favorite": false,
       "Title": "I Am Legend",      
       "Released": "14 Dec 2007",      
       "Genre": "Drama, Horror, Sci-Fi",      
@@ -20,6 +22,7 @@
     },
     {
       "key": "3",      
+      "Favorite": false,
       "Title": "300",      
       "Released": "09 Mar 2007",      
       "Genre": "Action, Drama, Fantasy",      
@@ -29,6 +32,7 @@
     },
     {
       "key": "4",      
+      "Favorite": false,
       "Title": "The Avengers",      
       "Released": "04 May 2012",      
       "Genre": "Action, Sci-Fi, Thriller",      
@@ -38,6 +42,7 @@
     },
     {
       "key": "5",      
+      "Favorite": false,
       "Title": "The Wolf of Wall Street",      
       "Released": "25 Dec 2013",      
       "Genre": "Biography, Comedy, Crime",      
@@ -47,6 +52,7 @@
     },
     {
       "key": "6",      
+      "Favorite": false,
       "Title": "Interstellar",      
       "Released": "07 Nov 2014",      
       "Genre": "Adventure, Drama, Sci-Fi",      

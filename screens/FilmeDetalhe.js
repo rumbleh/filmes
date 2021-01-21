@@ -1,31 +1,35 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import {View, Text, Image, StyleSheet, ImageBackground} from 'react-native';
-
 import {useRoute} from '@react-navigation/native';
 import StarRating from 'react-native-star-rating';
-import {useState} from 'react';
+import {useSelector, useDispatch} from 'react-redux';
 
 const FilmeDetalhe = ({navigation}) => {
-  const route = useRoute();
-  const [filme] = useState(route.params.filme);
-  const [nota, setNota] = useState(filme.Rating);
+  const index = useRoute().params.index;
+  const filmes = useSelector((state) => state.data);
+  const dispatch = useDispatch();
 
-  const avaliar = (v) => {
-    setNota(v);
-    filme.Rating = v;
+  const avaliar = (stars) => {
+    dispatch({
+      type: 'SET_RATING',
+      payload: {
+        index,
+        stars,
+      },
+    });
   };
 
   return (
     <ImageBackground
-      source={{uri: filme.Poster}}
+      source={{uri: filmes[index].Poster}}
       blurRadius={5}
       style={styles.container}>
-      <Image source={{uri: filme.Poster}} style={styles.poster} />
+      <Image source={{uri: filmes[index].Poster}} style={styles.poster} />
       <View style={styles.rating}>
         <StarRating
           disabled={false}
           maxStars={5}
-          rating={nota}
+          rating={filmes[index].Rating}
           fullStarColor={'darkorange'}
           emptyStarColor={'darkorange'}
           starSize={40}
@@ -33,10 +37,10 @@ const FilmeDetalhe = ({navigation}) => {
         />
       </View>
       <View style={styles.detalhes}>
-        <Text style={styles.titulo}>{filme.Title}</Text>
-        <Text>Lançamento: {filme.Released}</Text>
-        <Text>{filme.Genre}</Text>
-        <Text style={styles.enredo}>{filme.Plot}</Text>
+        <Text style={styles.titulo}>{filmes[index].Title}</Text>
+        <Text>Lançamento: {filmes[index].Released}</Text>
+        <Text>{filmes[index].Genre}</Text>
+        <Text style={styles.enredo}>{filmes[index].Plot}</Text>
       </View>
     </ImageBackground>
   );
