@@ -1,5 +1,3 @@
-import {React} from 'react';
-
 const lista = require('../../assets/filmes.json');
 
 const FilmeReducer = (state = lista, action) => {
