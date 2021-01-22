@@ -1,4 +1,5 @@
 import React from 'react';
+import {Button} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 
@@ -35,6 +36,13 @@ function Myapp() {
             component={FilmeDetalhe}
             options={({route}) => ({
               title: route.params.name,
+              headerStyle: {
+                backgroundColor: '#264653',
+              },
+              headerTintColor: '#fff',
+              headerTitleStyle: {
+                fontWeight: '100',
+              },
             })}
           />
         </Stack.Navigator>

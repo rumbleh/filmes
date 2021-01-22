@@ -25,6 +25,7 @@ const FilmeFlatComponent = ({data, index}) => {
       },
     });
   };
+
   return (
     <TouchableOpacity onPress={navegar} style={styles.container}>
       <Image

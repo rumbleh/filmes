@@ -1,6 +1,13 @@
-import React from 'react';
-import {View, Text, Image, StyleSheet, ImageBackground} from 'react-native';
-import {useRoute} from '@react-navigation/native';
+import React, {useEffect} from 'react';
+import {
+  View,
+  Text,
+  Image,
+  StyleSheet,
+  ImageBackground,
+  Button,
+} from 'react-native';
+import {useRoute, useNavigation} from '@react-navigation/native';
 import StarRating from 'react-native-star-rating';
 import {useSelector, useDispatch} from 'react-redux';
 
@@ -8,6 +15,30 @@ const FilmeDetalhe = ({navigation}) => {
   const index = useRoute().params.index;
   const filmes = useSelector((state) => state.data);
   const dispatch = useDispatch();
+
+  const toggleFavorito = () => {
+    dispatch({
+      type: 'TOGGLE_FAVORITE',
+      payload: {
+        index,
+      },
+    });
+  };
+
+  const nav = useNavigation();
+  useEffect(() => {
+    nav.setOptions({
+      headerRight: () => (
+        <View style={{paddingRight: 10}}>
+          <Button
+            onPress={() => toggleFavorito()}
+            title={filmes[index].Favorite ? '♥' : '💔'}
+            color="#f8edeb"
+          />
+        </View>
+      ),
+    });
+  });
 
   const avaliar = (stars) => {
     dispatch({
