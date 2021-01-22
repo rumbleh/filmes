@@ -6,8 +6,8 @@ import {createStackNavigator} from '@react-navigation/stack';
 import {createStore} from 'redux';
 import {Provider} from 'react-redux';
 
-import ListaFilmes from './screens/ListaFilmes';
-import FilmeDetalhe from './screens/FilmeDetalhe';
+import ListaFilmes from './src/screens/ListaFilmes';
+import FilmeDetalhe from './src/screens/FilmeDetalhe';
 import FilmeReducer from './src/reducers/FilmeReducer';
 
 const Stack = createStackNavigator();
