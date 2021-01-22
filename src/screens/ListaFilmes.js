@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {View, FlatList} from 'react-native';
-import FilmeFlatComponent from '../components/FilmeFlatComponent';
+import FilmeFlatComponent from '../../../components/FilmeFlatComponent';
 import {useSelector} from 'react-redux';
 
 const ListaFilmes = () => {
